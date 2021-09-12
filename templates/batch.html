@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<style>
+    h1{
+        text-align: center;
+    }
+    textarea{
+        margin-left: 20%;
+    }
+    #btn{
+        text-align: center;
+        margin-left: 46%;
+        margin-top: 2%;
+        padding: 6px 18px;
+        font-size: 16px;
+    }
+    p{
+        text-align: center;
+    }
+    #btn2{
+        text-align: center;
+        margin-left: 44%;
+        margin-top: 2%;
+        font-size: 16px;
+        padding: 6px 18px;
+        margin-bottom: 3%;
+    }
+</style>   
+<body>
+ <div class="user_input">
+	<h1>Customer Churn Prediction</h1>
+    <p>{{error}}</p>
+
+    <form action="{{ url_for('predict')}}"method="post">
+        <textarea name="data" rows="25" cols="100">[{'state': 'IL',
+  'account_length': 76.0,
+  'area_code': 'area_code_510',
+  'international_plan': 'no',
+  'voice_mail_plan': 'no',
+  'number_vmail_messages': 0.0,
+  'total_day_minutes': 186.1,
+  'total_day_calls': 96.0,
+  'total_day_charge': 31.64,
+  'total_eve_minutes': 211.6,
+  'total_eve_calls': 100.0,
+  'total_eve_charge': 17.99,
+  'total_night_minutes': 230.6,
+  'total_night_calls': 100.0,
+  'total_night_charge': 10.38,
+  'total_intl_minutes': 8.0,
+  'total_intl_calls': 4.0,
+  'total_intl_charge': 2.16,
+  'number_customer_service_calls': 0.0},
+  
+ {'state': 'KY',
+  'account_length': 78.0,
+  'area_code': 'area_code_415',
+  'international_plan': 'no',
+  'voice_mail_plan': 'no',
+  'number_vmail_messages': 0.0,
+  'total_day_minutes': 254.1,
+  'total_day_calls': 112.0,
+  'total_day_charge': 43.2,
+  'total_eve_minutes': 215.9,
+  'total_eve_calls': 80.0,
+  'total_eve_charge': 18.35,
+  'total_night_minutes': 267.1,
+  'total_night_calls': 124.0,
+  'total_night_charge': 12.02,
+  'total_intl_minutes': 16.3,
+  'total_intl_calls': 3.0,
+  'total_intl_charge': 4.4,
+  'number_customer_service_calls': 0.0}]
+</textarea>
+        <br>
+        <button type="submit" id="btn">Predict</button>
+    </form>
+    <a href="/"><button id="btn2">Single Prediction</button></a>
+ </div>
+</body>
+</html>
