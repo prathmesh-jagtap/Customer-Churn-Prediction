@@ -23,21 +23,34 @@
     p{
         font-size: 20px;
     }
+    #btn2{
+        text-align: center;
+        margin-left: 44%;
+        margin-top: 2%;
+        font-size: 16px;
+        padding: 6px 18px;
+        margin-bottom: 3%;
+    }
+    #err{
+        text-align: center;
+    }
     </style>
     
 <body>
+
  <div class="user_input">
 	<h1>Customer Churn Prediction</h1>
+    <p id="err">{{error}}</p>
 
-    <form action="{{ url_for('model')}}"method="post">
+    <form action="{{ url_for('predict')}}"method="post">
         <div class="grid-container">
             <div class="grid-item">
                 <p>State</p>
-                <input type="text" name="state" placeholder="Eg:NJ/OH" required="required" />
+                <input type="text" name="state" placeholder="Eg:NJ/OH" value ="KY" required="required" />
             </div>
             <div class="grid-item">
                  <p>Account Length</p>
-                <input type="text" name="account_length" required="required" />
+                <input type="text" name="account_length" value = "78.0"required="required" />
             </div>
             <div class="grid-item">
                 <p>Area Code</p>
@@ -50,78 +63,77 @@
             <div class="grid-item">
                 <p>International Plan</p>
                 <select name="international_plan">
+		    <option value="no">no</option>
                     <option value="yes">yes</option>
-                    <option value="no">no</option>
                   </select>
             </div>
             <div class="grid-item">
                 <p>Voice Mail Plan</p>
                 <select name="voice_mail_plan">
+		    <option value="no">no</option>
                     <option value="yes">yes</option>
-                    <option value="no">no</option>
                   </select>
             </div>
             <div class="grid-item">
                 <p>Number vmail Messages</p>
-                <input type="text" name="number_vmail_messages" required="required" />
+                <input type="text" name="number_vmail_messages" value = "0.0" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total Day Minutes</p>
-                <input type="text" name="total_day_minutes" required="required" />
+                <input type="text" name="total_day_minutes" value = "254.1" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total Day Calls</p>
-                <input type="text" name="total_day_calls" required="required" />
+                <input type="text" name="total_day_calls" value = "112.0" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total Day Charge</p>
-                <input type="text" name="total_day_charge" required="required" />
+                <input type="text" name="total_day_charge" value = "43.2" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total Evening Minutes</p>
-                <input type="text" name="total_eve_minutes" required="required" />
+                <input type="text" name="total_eve_minutes" value ="215.9" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total Evening Calls</p>
-                <input type="text" name="total_eve_calls" required="required" />
+                <input type="text" name="total_eve_calls" value = "80.0" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total Evening Charge</p>
-                <input type="text" name="total_eve_charge" required="required" />
+                <input type="text" name="total_eve_charge" value = "18.35" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total Night Minutes</p>
-                <input type="text" name="total_night_minutes" required="required" />
+                <input type="text" name="total_night_minutes" value = "267.1" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total Night Calls</p>
-                <input type="text" name="total_night_calls" required="required" />
+                <input type="text" name="total_night_calls" value = "124.0" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total Night Charge</p>
-                <input type="text" name="total_night_charge" required="required" />
+                <input type="text" name="total_night_charge" value = "12.02" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total International Minutes</p>
-                <input type="text" name="total_intl_minutes" required="required" />
+                <input type="text" name="total_intl_minutes" value = "16.3" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total International Calls</p>
-                <input type="text" name="total_intl_calls" required="required" />
+                <input type="text" name="total_intl_calls" value = "3.0" required="required" />
             </div>
             <div class="grid-item">
                 <p>Total International Charge</p>
-                <input type="text" name="total_intl_charge" required="required" />
+                <input type="text" name="total_intl_charge" value = "4.4" required="required" />
             </div>
             <div class="grid-item">
                 <p>No of Customer Service  Calls</p>
-                <input type="text" name="number_customer_service_calls" required="required" />
+                <input type="text" name="number_customer_service_calls" value = "0.0" required="required" />
             </div>
         </div>
         <button type="submit" id="btn">Predict</button>
     </form>
+    <a href="/batch_model"><button id="btn2">Batch Prediction</button></a>
  </div>
-
 </body>
 </html>
-
